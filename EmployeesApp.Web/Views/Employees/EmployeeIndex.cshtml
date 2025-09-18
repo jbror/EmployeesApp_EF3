@@ -1,0 +1,42 @@
+﻿@using EmployeesApp.Web.Views.Employees
+@using EmployeesApp.Web.Views.Home
+@model List<EmployeeIndexVM>
+@{
+    ViewData["Title"] = "Start";
+}
+
+<h1>Our Employees</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Company</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empl in Model)
+        {
+            <tr>
+                <td>@empl.Id</td>
+                <td>@empl.Name</td>
+                <td>@empl.Email</td>
+                <td>@($"{empl.Salary:F2} SEK")</td>
+                <td>@empl.CompanyName</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p> </p>
+
+<a asp-controller="Employees" asp-action="EmployeeCreate" role="button" class="createbtn">
+    Add Employee
+</a>
+
+

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - EmployeesApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark">
+
+
+@*     <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@latest/css/pico.classless.min.css">             *@ @* vanliga classless *@
+@*     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.fluid.classless.min.css"> *@ @* med fluid-classless *@
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">                  @* Vanliga/hela PICO *@
+    
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+</head>
+
+<body>
+
+    <!-- the menu -->
+    <nav class="centered-nav">
+      @*   <ul>
+            <li><strong>EmployeesApp</strong></li>
+        </ul> *@
+        <ul>
+            <li>
+                <a asp-controller="Home" asp-action="Index"
+                   class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a asp-controller="Employees" asp-action="EmployeeIndex"
+                   class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Employees" ? "active" : "")">
+                    Employees
+                </a>
+            </li>
+
+
+            <li>
+                <a asp-controller="Companies" asp-action="CompanyIndex"
+                   class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Companies" ? "active" : "")">
+                    Companies
+                </a>
+            </li>
+
+
+
+
+@*             <li><a asp-controller="Companies" asp-action="CompanyIndex">Companies</a></li>
+
+
+ *@            @* <li><a asp-controller="Employees" asp-action="EmployeeCreate" role="button">Add Employee</a></li> *@
+        </ul>
+    </nav>
+
+    <!-- the content -->
+    <main class="wrapper">
+        @RenderBody()
+    </main>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* ----------------from before-------------------
+<body>
+
+
+    <main>
+        @RenderBody()
+    </main>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>  *@

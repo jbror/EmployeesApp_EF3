@@ -1,0 +1,102 @@
+﻿@using EmployeesApp.Web.Views.Home
+@model HomeIndexVM
+
+
+
+@{
+    ViewData["Title"] = "Start";
+}
+
+
+@* <aside> 
+ <nav>
+    <ul>
+        <li><strong>EmployeesApp</strong></li>
+    </ul>
+    <ul>
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Employees" asp-action="EmployeeIndex">Employees</a></li>
+        <li><a asp-controller="Employees" asp-action="EmployeeCreate" role="button" class="secondary">Add Employee</a></li>
+
+       <li><a asp-controller="Companies" asp-action="CompanyIndex">Companies</a></li>
+        <li><a asp-controller="Employees" asp-action="EmployeeCreate" class="secondary">Add Employee</a></li> 
+    </ul>
+</nav> 
+ </aside>
+
+ *@
+
+
+
+
+<h1>Our Employees</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Company</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empl in Model.Employees)
+        {
+            <tr>
+                <td>@empl.Id</td>
+                <td>@empl.Name</td>
+                <td>@empl.Email</td>
+                <td>@($"{empl.Salary:F2} SEK")</td>
+                <td>@empl.CompanyName</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>To manage employees click on the Employees button! </p>
+
+<a asp-controller="Employees" asp-action="EmployeeIndex" role="button" class="createbtn">
+    Employees
+</a>
+
+
+<h1>Companies</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Company Id</th>
+            <th>Name</th>   
+            <th>Employees Count</th>   
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var comp in Model.Companies)
+        {
+            <tr>
+                <td>@comp.Id</td>
+                <td>@comp.Name</td>
+                <td>@comp.EmployeesCount</td>
+            </tr>
+
+        }
+
+
+    </tbody>
+</table>
+
+<p>To manage companies click on the Companies button! </p>
+
+<a asp-controller="Companies" asp-action="CompanyIndex" role="button" class="createbtn">
+    Companies
+</a>
+
+
+@* <p>Add employee to company</p>
+<a href="/ConnectEmployee" role="button" class="createbtn">Connect Employee</a> *@
+    

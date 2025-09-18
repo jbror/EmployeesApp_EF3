@@ -1,0 +1,41 @@
+﻿@using EmployeesApp.Web.Views.Companies
+@model List<CompanyIndexVM>
+@{
+    ViewData["Title"] = "Companies";
+}
+
+
+<h1>Our Companies</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>EmployeesCount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var comp in Model)
+        {
+            <tr>
+                <td>@comp.Id</td>
+                <td>@comp.Name</td>
+                <td>@comp.EmployeesCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* <div class="button-row" style="display:flex;justify-content:space-between;width:100%;"> *@
+<div class="button-row">
+    <a asp-controller="Companies" asp-action="CompanyCreate" role="button" class="mybutton">
+        Add company
+    </a>
+    <a asp-controller="Companies" asp-action="ConnectEmployee" role="button" class="mybutton">
+        Connect employee
+    </a>
+</div>
+
+

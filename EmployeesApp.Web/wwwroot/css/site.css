@@ -1,0 +1,50 @@
+﻿.createbtn {
+    background-color: #b94545;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #f0f0f0;
+}
+
+/* Centrerar innehållet och ger vit bakgrund tillsammans med Pico classless */
+.wrapper {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+
+
+.button-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    
+}
+
+
+
