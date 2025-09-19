@@ -121,6 +121,40 @@ public class CompaniesController : Controller
 
 
 
+    [HttpGet("get/{id}")]
+    public async Task<IActionResult> GetCompanyAsync(int id)
+    {
+        var company = await _companyService.GetAsync(id);
+
+        if (company == null)
+            return NotFound();
+
+        return Ok(company);
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

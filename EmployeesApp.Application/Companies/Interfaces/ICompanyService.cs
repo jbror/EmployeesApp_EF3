@@ -8,4 +8,6 @@ public interface ICompanyService
 
     Task AddAsync(Company company);
 
+    Task<Company?> GetAsync(int companyId);
+
 }
