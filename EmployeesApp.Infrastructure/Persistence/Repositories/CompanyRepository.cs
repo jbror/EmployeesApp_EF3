@@ -44,6 +44,17 @@ public class CompanyRepository : ICompanyRepository
     }
 
 
+    public async Task<Company?> GetAsync(int companyId)
+    {
+
+        return await  _context.Companies
+            .FindAsync(companyId);
+
+
+
+    }
+
+
 
 
 

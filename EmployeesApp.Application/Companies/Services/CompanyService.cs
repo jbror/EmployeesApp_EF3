@@ -40,7 +40,10 @@ public class CompanyService : ICompanyService
     }
 
 
-
+    public async Task<Company?> GetAsync(int companyId)
+    {
+        return await _companyRepository.GetAsync(companyId);
+    }
 
 
 
