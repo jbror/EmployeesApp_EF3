@@ -54,7 +54,7 @@ public class CompanyRepository : ICompanyRepository
 
     }
 
-    public  Company Remove(Company company) // here!!!!!!!!!!!!!!!!!!!!!!
+    public Company RemoveCo(Company company) // here!!!!!!!!!!!!!!!!!!!!!!
     {
         _context.Companies.Remove(company);
         _context.SaveChanges();
