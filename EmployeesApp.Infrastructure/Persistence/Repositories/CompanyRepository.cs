@@ -54,10 +54,10 @@ public class CompanyRepository : ICompanyRepository
 
     }
 
-    public Company RemoveCo(Company company) // here!!!!!!!!!!!!!!!!!!!!!!
+    public void Remove(Company company) // here!!!!!!!!!!!!!!!!!!!!!!
     {
         _context.Companies.Remove(company);
-        _context.SaveChanges();
+        
     }
 
 
