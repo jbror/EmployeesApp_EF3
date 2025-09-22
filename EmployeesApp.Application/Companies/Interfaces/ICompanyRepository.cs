@@ -11,5 +11,5 @@ public interface ICompanyRepository
     Task AddAsync(Company company);
 
     Task<Company?> GetAsync(int companyId);
-    Company RemoveCo(Company company);
+    Company Remove(Company company);
 }
