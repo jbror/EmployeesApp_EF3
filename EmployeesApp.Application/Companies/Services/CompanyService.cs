@@ -58,8 +58,13 @@ public class CompanyService : ICompanyService
             throw new Exception($"Company not found with id {companyId}");
 
 
+        foreach (var employee in company.Employees.ToList())
+            _unitOfWork.Employees.Remove(employee);
 
 
+        _unitOfWork.Companies.Remove(company);
+
+        await _unitOfWork.PersistAllAsync();
 
 
 
