@@ -15,7 +15,6 @@ public class UnitOfWork
     public readonly ICompanyRepository _companyRepository;
     public readonly IEmployeeRepository _employeeRepository;
 
-
     public UnitOfWork(ApplicationContext context,
                       ICompanyRepository companyRepository,
                       IEmployeeRepository employeeRepository)
@@ -24,13 +23,25 @@ public class UnitOfWork
         _companyRepository = companyRepository;
         _employeeRepository = employeeRepository;
 
+    }
 
+
+
+    public async Task PersistAllAsync()
+    {
+
+        await _context.SaveChangesAsync();
 
     }
 
 
 
-    
+
+
+
+
+
+
 
 
 
