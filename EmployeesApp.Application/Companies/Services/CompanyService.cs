@@ -23,17 +23,17 @@ public class CompanyService : ICompanyService
 
     public async Task <Company[]> GetAllAsync()
     {
-        return await _companyRepository.GetAllAsync();
+        return await _unitOfWork.Companies.GetAllAsync();
     }
 
 
     public async Task AddAsync(Company company)
     {
 
-        var allCompany = _companyRepository.GetAllAsync();
+        var allCompany = _unitOfWork.Companies.GetAllAsync();
 
 
-         await _companyRepository.AddAsync(company);
+         await _unitOfWork.Companies.AddAsync(company);
 
 
 
@@ -44,7 +44,7 @@ public class CompanyService : ICompanyService
 
     public async Task<Company?> GetAsync(int companyId)
     {
-        return await _companyRepository.GetAsync(companyId);
+        return await _unitOfWork.Companies.GetAsync(companyId);
     }
 
 
