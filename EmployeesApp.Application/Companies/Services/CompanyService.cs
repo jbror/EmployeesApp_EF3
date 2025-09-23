@@ -30,10 +30,10 @@ public class CompanyService : ICompanyService
     public async Task AddAsync(Company company)
     {
 
-        var allCompany = _unitOfWork.Companies.GetAllAsync();
+       //var allCompany = _unitOfWork.Companies.GetAllAsync();
 
 
-         //_unitOfWork.Companies.AddAsync(company);
+        await _unitOfWork.Companies.AddAsync(company);
         await _unitOfWork.PersistAllAsync();
 
 
