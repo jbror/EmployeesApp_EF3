@@ -13,8 +13,8 @@ public class CompanyService : ICompanyService
     public CompanyService (IUnitOfWork unitOfWork, ICompanyRepository companyRepository)
     {
 
-        unitOfWork = _unitOfWork;
-        companyRepository = companyRepository;
+        _unitOfWork = unitOfWork;
+        _companyRepository = companyRepository;
     }
 
      
