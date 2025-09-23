@@ -8,11 +8,13 @@ namespace EmployeesApp.Application.Companies.Services;
 public class CompanyService : ICompanyService
 {
 
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ICompanyRepository _companyRepository;
-    public CompanyService (ICompanyRepository companyRepository)
+    public CompanyService (IUnitOfWork unitOfWork, ICompanyRepository companyRepository)
     {
 
-        _companyRepository = companyRepository;
+        unitOfWork = _unitOfWork;
+        companyRepository = companyRepository;
     }
 
      
