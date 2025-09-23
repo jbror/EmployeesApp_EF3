@@ -23,6 +23,9 @@ namespace EmployeesApp.Web
 
             builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
             builder.Services.AddScoped<ICompanyService, CompanyService>();
+            
+            
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 
