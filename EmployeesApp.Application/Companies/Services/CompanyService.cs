@@ -50,7 +50,24 @@ public class CompanyService : ICompanyService
 
 
 
+    public async Task DeleteAsync(int companyId)
+    {
+        // todo
 
+        var company = await _unitOfWork.Companies.GetAsync(companyId) ??
+            throw new Exception($"Company not found with id {companyId}");
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 
 
