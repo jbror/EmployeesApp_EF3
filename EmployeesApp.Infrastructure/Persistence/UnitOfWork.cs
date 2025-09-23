@@ -8,22 +8,28 @@ using System.Threading.Tasks;
 
 namespace EmployeesApp.Infrastructure.Persistence;
 
-public class UnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
+    public ICompanyRepository Companies { get; }
+    public IEmployeeRepository Employees { get; }
+    private readonly ApplicationContext _context;
 
-    public readonly ApplicationContext _context;
-    public readonly ICompanyRepository _companyRepository;
-    public readonly IEmployeeRepository _employeeRepository;
 
-    public UnitOfWork(ApplicationContext context,
-                      ICompanyRepository companyRepository,
-                      IEmployeeRepository employeeRepository)
+
+
+
+    public UnitOfWork(
+        ApplicationContext context,
+        ICompanyRepository companyRepository,
+        IEmployeeRepository employeeRepository)
     {
         _context = context;
-        _companyRepository = companyRepository;
-        _employeeRepository = employeeRepository;
+        Companies = companyRepository;
+        Employees = employeeRepository;
 
     }
+
+
 
 
 
