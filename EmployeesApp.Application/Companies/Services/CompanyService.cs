@@ -9,12 +9,12 @@ public class CompanyService : ICompanyService
 {
 
     private readonly IUnitOfWork _unitOfWork;
-    private readonly ICompanyRepository _companyRepository;
-    public CompanyService (IUnitOfWork unitOfWork, ICompanyRepository companyRepository)
+   // private readonly ICompanyRepository _companyRepository;
+    public CompanyService (IUnitOfWork unitOfWork)
     {
 
         _unitOfWork = unitOfWork;
-        _companyRepository = companyRepository;
+       // _companyRepository = companyRepository;
     }
 
      
@@ -33,7 +33,8 @@ public class CompanyService : ICompanyService
         var allCompany = _unitOfWork.Companies.GetAllAsync();
 
 
-         await _unitOfWork.Companies.AddAsync(company);
+         //_unitOfWork.Companies.AddAsync(company);
+        await _unitOfWork.PersistAllAsync();
 
 
 
