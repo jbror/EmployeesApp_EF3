@@ -66,7 +66,7 @@ public class EmployeeRepository : IEmployeeRepository
 
     public void Remove(Employee employee)
     {
-        _context.Remove(employee);
+        _context.Employees.Remove(employee);
     }
 
 

@@ -52,26 +52,17 @@ public class CompanyService : ICompanyService
 
     public async Task DeleteAsync(int companyId)
     {
-        // todo
-
-        var company = await _unitOfWork.Companies.GetAsync(companyId) ??
-            throw new Exception($"Company not found with id {companyId}");
-
+        var company = await _unitOfWork.Companies.GetAsync(companyId)
+            ?? throw new Exception($"Company not found with id {companyId}");
 
         foreach (var employee in company.Employees.ToList())
             _unitOfWork.Employees.Remove(employee);
 
+       // await _unitOfWork.PersistAllAsync(); // Save employee deletions
 
         _unitOfWork.Companies.Remove(company);
 
-        await _unitOfWork.PersistAllAsync();
-
-
-
-
-
-
-
+        await _unitOfWork.PersistAllAsync(); // Save company deletion
     }
 
 

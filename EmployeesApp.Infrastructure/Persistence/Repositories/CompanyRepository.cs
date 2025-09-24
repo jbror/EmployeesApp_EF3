@@ -47,14 +47,15 @@ public class CompanyRepository : ICompanyRepository
     public async Task<Company?> GetAsync(int companyId)
     {
 
-        return await  _context.Companies
-            .FindAsync(companyId);
+        return await _context.Companies
+            .Include(c => c.Employees)
+            .FirstOrDefaultAsync(c => c.Id == companyId);
 
 
 
     }
 
-    public void  Remove(Company company) 
+    public void Remove(Company company) 
     {
          _context.Companies.Remove(company);
          

@@ -137,6 +137,7 @@ public class CompaniesController : Controller
 
     }
 
+    // Run this in browserDebugger : fetch('/delete/id', { method: 'POST' });
 
 
     [HttpPost("/delete/{id}")]
