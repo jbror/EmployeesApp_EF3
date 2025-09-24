@@ -139,23 +139,40 @@ public class CompaniesController : Controller
 
 
 
+    [HttpPost("/delete/{id}")]
+    public async Task<IActionResult> RemoveCompany(int id)
+    {
 
+        //var company = await _companyService.GetAsync(id);
 
+        //    if (company == null)
+        //    return NotFound();
 
-
-
-
-
-
-
-
-
+        await _companyService.DeleteAsync(id);
+        return RedirectToAction("CompanyIndex");
 
 
 
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 

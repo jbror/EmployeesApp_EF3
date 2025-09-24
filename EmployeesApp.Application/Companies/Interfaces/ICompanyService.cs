@@ -10,4 +10,7 @@ public interface ICompanyService
 
     Task<Company?> GetAsync(int companyId);
 
+    Task DeleteAsync(int companyId);
+
+
 }
